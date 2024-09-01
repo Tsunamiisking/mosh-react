@@ -7,10 +7,13 @@ function ListGroup() {
     { City: "France", Id: 4 },
     { City: "Congo", Id: 5 },
   ];
-
+  let selectedIndex = 1;
+  // Event Handler
   const handleClick = (event: React.MouseEvent<HTMLLIElement>) => {
-    console.log(event.type)
-  }
+    const element = event.currentTarget;
+    
+    element.classList.toggle('active');
+};
   // items = []
   // Using "<> </>" as "fragments" to wrap all the elements in this component
   // because we cannot render more than one element in a component that is not nested
@@ -27,9 +30,9 @@ function ListGroup() {
         {/* Indexing List objects for data usage */}
         {items.map((item) => (
           <li
-            className="list-group-item"
+            className= {selectedIndex === item.Id ? 'list-group-item active' : 'list-group-item'}
             key={item.Id}
-            onDoubleClick={handleClick}
+            onClick={handleClick}
           >
             {item.City}
           </li>
