@@ -1,5 +1,25 @@
+import React, { useState } from 'react';
+
 function ListGroup() {
-  // List of of bjects
+  // Event Handler
+  // const handleClick = (event: React.MouseEvent<HTMLLIElement>) => {
+  //   const elements = document.querySelectorAll("li");
+  //   elements.forEach((e) => {
+  //     e.classList.remove("active");
+  //   });
+  //   const element = event.currentTarget;
+  //   element.classList.toggle("active");
+  // };
+
+  // ALternative solution to the active click feature without DOM manipulation 
+
+  const [activeId, setActiveId] = useState<number | null>(null);
+
+  const handleClick = (id: number) => {
+    setActiveId(id); // Update state to the clicked item's ID
+  };
+
+  // List of of Objects
   let items = [
     { City: "New York", Id: 1 },
     { City: "Italy", Id: 2 },
@@ -7,13 +27,7 @@ function ListGroup() {
     { City: "France", Id: 4 },
     { City: "Congo", Id: 5 },
   ];
-  let selectedIndex = 1;
-  // Event Handler
-  const handleClick = (event: React.MouseEvent<HTMLLIElement>) => {
-    const element = event.currentTarget;
-    
-    element.classList.toggle('active');
-};
+
   // items = []
   // Using "<> </>" as "fragments" to wrap all the elements in this component
   // because we cannot render more than one element in a component that is not nested
@@ -30,9 +44,17 @@ function ListGroup() {
         {/* Indexing List objects for data usage */}
         {items.map((item) => (
           <li
-            className= {selectedIndex === item.Id ? 'list-group-item active' : 'list-group-item'}
+            // className={
+            //   selectedIndex === item.Id
+            //     ? "list-group-item active"
+            //     : "list-group-item"
+            // }
+            className={
+            `list-group-item ${activeId === item.Id ? 'active' : ''}`
+            }
             key={item.Id}
-            onClick={handleClick}
+            // onClick={handleClick}
+            onClick={() => handleClick(item.Id)}
           >
             {item.City}
           </li>
