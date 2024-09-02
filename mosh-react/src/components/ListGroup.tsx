@@ -1,6 +1,16 @@
 import React, { useState } from 'react';
 
-function ListGroup() {
+interface Item {
+  City: string;
+  Id: number;
+}
+
+interface Props {
+  items: Item[];  // Array of objects with a specific structure
+  heading: string;
+}
+
+function ListGroup({items, heading}: Props) {
   // Event Handler
   // const handleClick = (event: React.MouseEvent<HTMLLIElement>) => {
   //   const elements = document.querySelectorAll("li");
@@ -20,20 +30,13 @@ function ListGroup() {
   };
 
   // List of of Objects
-  let items = [
-    { City: "New York", Id: 1 },
-    { City: "Italy", Id: 2 },
-    { City: "Japanese", Id: 3 },
-    { City: "France", Id: 4 },
-    { City: "Congo", Id: 5 },
-  ];
 
   // items = []
   // Using "<> </>" as "fragments" to wrap all the elements in this component
   // because we cannot render more than one element in a component that is not nested
   return (
     <>
-      <h1>List</h1>
+      <h1>{heading}</h1>
       {/* Checks if items are inside the items list.. 
         in logical operations, true && <value> returns <value>, 
         false && <value> returns <value> */}
