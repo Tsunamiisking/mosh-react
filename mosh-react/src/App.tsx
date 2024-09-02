@@ -8,7 +8,11 @@ function App() {
     { City: "France", Id: 4 },
     { City: "Congo", Id: 5 },
   ];
-  return <div><ListGroup items={items}  heading="Cities"/></div>
+
+  const handleSelectedItem = (item: string) => {
+    console.log(item)
+  }
+  return <div><ListGroup items={items}  heading="Cities" onSelectedItem={handleSelectedItem}/></div>
 }
 
 export default App;

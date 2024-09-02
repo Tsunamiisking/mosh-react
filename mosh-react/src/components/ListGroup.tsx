@@ -8,9 +8,10 @@ interface Item {
 interface Props {
   items: Item[];  // Array of objects with a specific structure
   heading: string;
+  onSelectedItem: (item: string) => void
 }
 
-function ListGroup({items, heading}: Props) {
+function ListGroup({items, heading, onSelectedItem}: Props) {
   // Event Handler
   // const handleClick = (event: React.MouseEvent<HTMLLIElement>) => {
   //   const elements = document.querySelectorAll("li");
@@ -57,7 +58,10 @@ function ListGroup({items, heading}: Props) {
             }
             key={item.Id}
             // onClick={handleClick}
-            onClick={() => handleClick(item.Id)}
+            onClick={() => {
+              handleClick(item.Id)
+              onSelectedItem(item.City)
+            }}
           >
             {item.City}
           </li>
