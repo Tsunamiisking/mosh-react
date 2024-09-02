@@ -21,7 +21,9 @@ function App() {
         onSelectedItem={handleSelectedItem}
       />
 
-      <Alert />
+      <Alert>
+        Hello <span> World </span>
+      </Alert>
     </div>
   );
 }
