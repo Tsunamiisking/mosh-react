@@ -1,10 +1,11 @@
 import ListGroup from "./components/ListGroup";
 import Alert from "./components/Alert";
 import Exercise from "./components/Exercise";
+import { IoClose  } from "react-icons/io5";
+
 
 // AVAILABLE BUTTON COLORS
-// 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info' | 'light' | 'dark' 
-
+// 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info' | 'light' | 'dark'
 
 function App() {
   let items = [
@@ -19,38 +20,36 @@ function App() {
     console.log(item);
   };
   const handleButtonClick = () => {
-    const element = document.querySelector('.alertBox') as HTMLElement
+    const element = document.querySelector(".alertBox") as HTMLElement;
     if (element) {
-      element.style.display = 'block'
+      element.style.display = "block";
     }
-  }
+  };
   const handleAlertClick = () => {
-    const element = document.querySelector('.alertBox') as HTMLElement
+    const element = document.querySelector(".alertBox") as HTMLElement;
     if (element) {
-      element.style.display = 'none'
+      element.style.display = "none";
     }
-
-
-  }
+  };
   return (
     <div>
+      <Alert>
+        <div className="text">There's a problem with the system</div>
+        <div onClick={handleAlertClick} className="cancel-icon">
+        <IoClose />
+        </div>
+      </Alert>
+
       <ListGroup
         items={items}
         heading="Cities"
         onSelectedItem={handleSelectedItem}
       />
 
-      <Alert>
-        <div className="text">There's a problem with the system</div>
-        <div onClick={handleAlertClick} className="cancel-icon"> Cancel </div>
-      </Alert>
-      
-      <Exercise onClick={handleButtonClick} color='primary'>
+      <Exercise onClick={handleButtonClick} color="primary">
         Click Me!
-       </Exercise>
+      </Exercise>
     </div>
-
-
   );
 }
 
