@@ -21,6 +21,9 @@ function App() {
   const handleButtonClick = () => {
 
   }
+  const handleAlertClick = () => {
+
+  }
   return (
     <div>
       <ListGroup
@@ -29,7 +32,7 @@ function App() {
         onSelectedItem={handleSelectedItem}
       />
 
-      <Alert>
+      <Alert onClick={handleAlertClick}>
         Hello <span> World </span>
       </Alert>
       

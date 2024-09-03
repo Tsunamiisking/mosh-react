@@ -2,11 +2,12 @@ import { ReactNode } from "react"
 
 interface Props {
     children: ReactNode
+    onClick: () => void
 }
 
-const Alert = ({ children }: Props) => {
+const Alert = ({ children, onClick }: Props) => {
   return (
-    <div className="alert alert-primary">
+    <div onClick={onClick} className="alert alert-primary">
       {children}
     </div>
   )
