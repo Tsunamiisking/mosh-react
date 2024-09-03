@@ -18,6 +18,9 @@ function App() {
   const handleSelectedItem = (item: string) => {
     console.log(item);
   };
+  const handleButtonClick = () => {
+
+  }
   return (
     <div>
       <ListGroup
@@ -30,10 +33,7 @@ function App() {
         Hello <span> World </span>
       </Alert>
       
-      <Exercise color='primary'>
-        Click Me!
-       </Exercise>
-       <Exercise color="secondary">
+      <Exercise onClick={handleButtonClick} color='primary'>
         Click Me!
        </Exercise>
     </div>
