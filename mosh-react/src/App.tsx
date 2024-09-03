@@ -1,5 +1,10 @@
 import ListGroup from "./components/ListGroup";
 import Alert from "./components/Alert";
+import Exercise from "./components/Exercise";
+
+// AVAILABLE BUTTON COLORS
+// 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info' | 'light' | 'dark' 
+
 
 function App() {
   let items = [
@@ -24,7 +29,16 @@ function App() {
       <Alert>
         Hello <span> World </span>
       </Alert>
+      
+      <Exercise color='primary'>
+        Click Me!
+       </Exercise>
+       <Exercise color="secondary">
+        Click Me!
+       </Exercise>
     </div>
+
+
   );
 }
 
