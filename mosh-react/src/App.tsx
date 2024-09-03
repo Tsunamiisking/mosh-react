@@ -19,9 +19,17 @@ function App() {
     console.log(item);
   };
   const handleButtonClick = () => {
-
+    const element = document.querySelector('.alertBox') as HTMLElement
+    if (element) {
+      element.style.display = 'block'
+    }
   }
   const handleAlertClick = () => {
+    const element = document.querySelector('.alertBox') as HTMLElement
+    if (element) {
+      element.style.display = 'none'
+    }
+
 
   }
   return (
@@ -32,8 +40,9 @@ function App() {
         onSelectedItem={handleSelectedItem}
       />
 
-      <Alert onClick={handleAlertClick}>
-        Hello <span> World </span>
+      <Alert>
+        <div className="text">There's a problem with the system</div>
+        <div onClick={handleAlertClick} className="cancel-icon"> Cancel </div>
       </Alert>
       
       <Exercise onClick={handleButtonClick} color='primary'>

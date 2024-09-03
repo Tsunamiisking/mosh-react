@@ -1,16 +1,17 @@
-import { ReactNode } from "react"
+import { ReactNode } from "react";
 
 interface Props {
-    children: ReactNode
-    onClick: () => void
+  children: ReactNode;
 }
 
-const Alert = ({ children, onClick }: Props) => {
+const Alert = ({ children, }: Props) => {
   return (
-    <div onClick={onClick} className="alert alert-primary">
-      {children}
-    </div>
-  )
-}
+      <div className="alertBox">
+        <div className="elemAlert alert alert-primary">
+          {children}
+        </div>
+      </div>
+  );
+};
 
-export default Alert
+export default Alert;

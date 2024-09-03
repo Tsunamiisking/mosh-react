@@ -1,0 +1,8 @@
+.alertBox {
+    display: none;
+    cursor: pointer;
+}
+.elemAlert{
+    justify-content: space-between;
+    display: flex;
+}
