@@ -1,8 +1,8 @@
 import ListGroup from "./components/ListGroup";
 import Alert from "./components/Alert";
 import Exercise from "./components/Exercise";
-import { IoClose  } from "react-icons/io5";
-
+import { IoClose } from "react-icons/io5";
+import { useState } from "react";
 
 // AVAILABLE BUTTON COLORS
 // 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info' | 'light' | 'dark'
@@ -19,26 +19,19 @@ function App() {
   const handleSelectedItem = (item: string) => {
     console.log(item);
   };
-  const handleButtonClick = () => {
-    const element = document.querySelector(".alertBox") as HTMLElement;
-    if (element) {
-      element.style.display = "block";
-    }
-  };
-  const handleAlertClick = () => {
-    const element = document.querySelector(".alertBox") as HTMLElement;
-    if (element) {
-      element.style.display = "none";
-    }
-  };
+
+  // const handleAlertClick = () => {
+  //   const element = document.querySelector(".alertBox") as HTMLElement;
+  //   if (element) {
+  //     element.style.display = "none";
+  //   }
+  // };
+
+  const [visibility, setVisibility] = useState(false);
+
   return (
     <div>
-      <Alert>
-        <div className="text">There's a problem with the system</div>
-        <div onClick={handleAlertClick} className="cancel-icon">
-        <IoClose />
-        </div>
-      </Alert>
+      { visibility && <Alert onClick={() => {setVisibility(false)}}>There's a problem with the system</Alert>}
 
       <ListGroup
         items={items}
@@ -46,7 +39,7 @@ function App() {
         onSelectedItem={handleSelectedItem}
       />
 
-      <Exercise onClick={handleButtonClick} color="primary">
+      <Exercise onClick={() => {setVisibility(true)}} color="primary">
         Click Me!
       </Exercise>
     </div>

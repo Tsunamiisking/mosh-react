@@ -2,15 +2,25 @@ import { ReactNode } from "react";
 
 interface Props {
   children: ReactNode;
+  onClick: () => void
 }
 
-const Alert = ({ children, }: Props) => {
+const Alert = ({ children, onClick }: Props) => {
   return (
-      <div className="alertBox">
-        <div className="elemAlert alert alert-primary">
-          {children}
-        </div>
-      </div>
+    <div
+      className="alert alert-primary alert-dismissible"
+    >
+      { children }
+      <button
+        type="button"
+        className="close"
+        data-dismiss="alert"
+        aria-label="Close"
+        onClick={onClick}
+      >
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
   );
 };
 
